@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour {
 	private static SoundManager instance;
 
 	private AudioSource musicAudio;
-	private AudioSource soundFx;
+	private AudioSource sfxAudio;
 
 	//GET and SET
 	public static float MusicVolume{
@@ -18,8 +18,8 @@ public class SoundManager : MonoBehaviour {
 		get{ return instance.musicAudio.volume; }
 	}
 	public static float SoundVolume{
-		set{ instance.soundFx.volume = value; }
-		get{ return instance.soundFx.volume; }
+		set{ instance.sfxAudio.volume = value; }
+		get{ return instance.sfxAudio.volume; }
 	}
 	// Use this for initialization
 	void Awake(){
@@ -29,23 +29,23 @@ public class SoundManager : MonoBehaviour {
 		musicAudio = gameObject.AddComponent<AudioSource> ();
 		musicAudio.loop = true;
 		musicAudio.volume = 0.5f;
-		soundFx = gameObject.AddComponent<AudioSource> ();
+		sfxAudio = gameObject.AddComponent<AudioSource> ();
 
 		//Check auido and sound
 		if (!GlobalValue.isMusic)
 			musicAudio.volume = 0;
 		if (!GlobalValue.isSound)
-			soundFx.volume = 0;
+			sfxAudio.volume = 0;
 
 		if (musics.Length > 0)
 			PlayMusic (musics [Random.Range (0, musics.Length)]);
 	}
 
 	public static void PlaySfx(AudioClip clip){
-		instance.PlaySound(clip, instance.soundFx);
+		instance.PlaySound(clip, instance.sfxAudio);
 	}
 	public static void PlaySfx(AudioClip clip, float volume){
-		instance.PlaySound(clip, instance.soundFx, volume);
+		instance.PlaySound(clip, instance.sfxAudio, volume);
 	}
 	
 	public static void PlaySfx(string nameSound){
@@ -53,7 +53,7 @@ public class SoundManager : MonoBehaviour {
 			Debug.Log ("No SoundManager found");
 			return;
 		}
-		instance.PlaySound (nameSound, instance.sounds, instance.soundFx);
+		instance.PlaySound (nameSound, instance.sounds, instance.sfxAudio);
 	}
 
 	public static void PlayMusic(string nameMusic){

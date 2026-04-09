@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
@@ -220,8 +220,8 @@ public class PlayerController : MonoBehaviour {
 				GameManager.Bullets--;
 				SoundManager.PlaySfx (soundThrow);
 				anim.SetTrigger (thrownTrigger);		//set trigger to throw
-				GameObject obj = Instantiate (Bullet, throwPoint.position, Quaternion.AngleAxis (30, Vector3.forward)) as GameObject;
-				obj.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (throwForce, 0));
+				GameObject bulletObj = Instantiate (Bullet, throwPoint.position, Quaternion.AngleAxis (30, Vector3.forward)) as GameObject;
+				bulletObj.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (throwForce, 0));
 			}
 		}
 	}
@@ -238,13 +238,13 @@ public class PlayerController : MonoBehaviour {
 			rig.linearVelocity = Vector2.zero;
 			rig.gravityScale = 0.5f;
 
-			var boxCo = GetComponents<BoxCollider2D> ();
-			foreach (var box in boxCo) {
+			var boxColliders = GetComponents<BoxCollider2D> ();
+			foreach (var box in boxColliders) {
 				box.enabled = false;
 			}
-			var CirCo = GetComponents<CircleCollider2D> ();
-			foreach (var cir in CirCo) {
-				cir.enabled = false;
+			var circleColliders = GetComponents<CircleCollider2D> ();
+			foreach (var circleCollider in circleColliders) {
+				circleCollider.enabled = false;
 			}
 
 		}
@@ -302,8 +302,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	//Disable the Magnet after the time delay
-	IEnumerator WaitAndDisableMagnet(float time){
-		yield return new WaitForSeconds (time);
+	IEnumerator WaitAndDisableMagnet(float seconds){
+		yield return new WaitForSeconds (seconds);
 		Magnet.SetActive (false);
 	}
 

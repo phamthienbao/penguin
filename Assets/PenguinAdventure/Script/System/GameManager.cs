@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -131,8 +131,8 @@ public class GameManager : MonoBehaviour {
 
 		//Unlock New World
 		if (isFinishWorld) {
-			int WorldReached = PlayerPrefs.GetInt ("WorldReached", 1);
-			if (WorldReached == GlobalValue.worldPlaying)
+			int worldReached = PlayerPrefs.GetInt ("WorldReached", 1);
+			if (worldReached == GlobalValue.worldPlaying)
 				PlayerPrefs.SetInt ("WorldReached", GlobalValue.worldPlaying + 1);
 		}
 	}
@@ -155,9 +155,9 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	IEnumerator Restartcheckpoint(float time){
+	IEnumerator Restartcheckpoint(float seconds){
 
-		yield return new WaitForSeconds (time);
+		yield return new WaitForSeconds (seconds);
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 }
