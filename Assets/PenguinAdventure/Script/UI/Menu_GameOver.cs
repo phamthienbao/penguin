@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class Menu_GameOver : MonoBehaviour {
 	public GameObject Next;

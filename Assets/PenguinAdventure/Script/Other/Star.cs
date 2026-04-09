@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class Star : MonoBehaviour {
 	public float speed = 10f;

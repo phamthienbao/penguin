@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class GlobalValue : MonoBehaviour {
 	public static bool isSound = true;

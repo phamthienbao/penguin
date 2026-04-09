@@ -57,7 +57,7 @@ public class MonsterWalk : MonoBehaviour {
 				isDead = true;
 				Dead ();
 				//Push player up
-				other.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+				other.GetComponent<Rigidbody2D> ().linearVelocity = Vector2.zero;
 				other.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, 300f));
 			}
 		}

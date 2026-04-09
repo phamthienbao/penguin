@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
 		if(GlobalValue.isUsingJetpack){
 			isUsingJetPack = true;
 
-			rig.velocity = Vector2.zero;
+			rig.linearVelocity = Vector2.zero;
 			JetPack.SetActive (true);
 		}
 	}
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
 				Slide (false);
 			}
 
-			anim.SetFloat ("Height", rig.velocity.y);
+			anim.SetFloat ("Height", rig.linearVelocity.y);
 		}
 	}
 
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour {
 				isGrounded = false;
 			}
 
-			if (rig.velocity.y == 0 && !isGrounded && !isUsingJetPack) {
+			if (rig.linearVelocity.y == 0 && !isGrounded && !isUsingJetPack) {
 				timeStuck -= Time.fixedDeltaTime;
 				if (timeStuck <= 0)
 					GameManager.instance.GameOver ();
@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour {
 			else if (isGrounded) {
 				SoundManager.PlaySfx (soundJump);
 				rig.gravityScale = gravityJump;
-				rig.velocity = Vector2.zero;
+				rig.linearVelocity = Vector2.zero;
 				rig.AddForce (new Vector2 (0, jumpForce));
 				Instantiate (jumpFx, smokePoint.position, Quaternion.identity);
 			}
@@ -235,7 +235,7 @@ public class PlayerController : MonoBehaviour {
 			JetPack.SetActive (false);		//hide Jetpack when dead
 			StopAllCoroutines ();
 			//			rig.isKinematic = true;
-			rig.velocity = Vector2.zero;
+			rig.linearVelocity = Vector2.zero;
 			rig.gravityScale = 0.5f;
 
 			var boxCo = GetComponents<BoxCollider2D> ();
@@ -284,7 +284,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if (other.gameObject.CompareTag ("JetPack")) {
 			isUsingJetPack = !isUsingJetPack;
-			rig.velocity = Vector2.zero;
+			rig.linearVelocity = Vector2.zero;
 			JetPack.SetActive (isUsingJetPack);
 			Destroy (other.gameObject);
 		}

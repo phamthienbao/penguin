@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 using GoogleMobileAds.Api;
 
 
@@ -116,7 +115,7 @@ public class AdsController : MonoBehaviour {
 
 		public static void DestroyAds(){
 		if (instance != null) {
-			instance.Destroy ();
+			instance.TearDownAdViews ();
 		}
 	}
 
@@ -137,7 +136,7 @@ public class AdsController : MonoBehaviour {
 		bannerView.Hide ();
 	}
 		//destroy all ads when exit game
-		private void Destroy(){
+		private void TearDownAdViews(){
 		bannerView.Destroy ();
 		interstitial.Destroy ();
 		}

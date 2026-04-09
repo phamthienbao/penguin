@@ -23,7 +23,7 @@ public class Springs : MonoBehaviour {
 		if (allowPush && !isJump && other.gameObject.CompareTag ("Player")) {
 			anim.SetTrigger ("Push");
 			SoundManager.PlaySfx (sound);
-			player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			player.GetComponent<Rigidbody2D> ().linearVelocity = Vector2.zero;
 			player.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, force));
 			isJump = true;
 

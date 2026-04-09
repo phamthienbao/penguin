@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
 /// Handle Level Complete UI of Menu object

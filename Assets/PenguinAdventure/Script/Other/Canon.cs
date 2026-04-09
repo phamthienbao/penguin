@@ -29,7 +29,7 @@ public class Canon : MonoBehaviour {
 			player.transform.rotation = FirePoint.rotation;
 			player.gameObject.SetActive (true);
 			player.CannonFire ();
-			player.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			player.GetComponent<Rigidbody2D> ().linearVelocity = Vector2.zero;
 			player.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (force, 0));
 			player.transform.rotation = Quaternion.identity;
 			Instantiate (SmokeFx, FirePoint.position, Quaternion.identity);

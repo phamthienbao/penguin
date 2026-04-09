@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class RotateAround : MonoBehaviour {
 	public float speed = 0.5f;

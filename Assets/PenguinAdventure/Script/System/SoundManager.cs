@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 /*
  * This is SoundManager
  * In other script, you just need to call SoundManager.PlaySfx(AudioClip) to play the sound

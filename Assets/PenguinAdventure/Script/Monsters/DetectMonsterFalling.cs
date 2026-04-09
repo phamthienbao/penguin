@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class DetectMonsterFalling : MonoBehaviour {
 	public Rigidbody2D monsterIV;

@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class MonsterIV : MonoBehaviour {
 	public AudioClip soundDead;
@@ -27,7 +26,7 @@ public class MonsterIV : MonoBehaviour {
 		if (other.CompareTag ("Player")) {
 			Dead ();
 			//Push player up
-			other.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+			other.GetComponent<Rigidbody2D> ().linearVelocity = Vector2.zero;
 			other.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, 300f));
 		}
 	}

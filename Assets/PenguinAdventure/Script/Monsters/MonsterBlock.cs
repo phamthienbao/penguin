@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
 
 public class MonsterBlock : MonoBehaviour {
 	public GameObject BlockMonster;
